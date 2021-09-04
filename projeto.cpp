@@ -3,10 +3,11 @@ using namespace std;
 
 void mostrar_tabuleiro();
 void vez_jogador();
-int ganhador();
 
+int ganhador();
 char tabuleiro[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
 char vez;
+char vencedor;
 
 int main(){
     vez='X';
@@ -16,6 +17,7 @@ int main(){
 
         if (ganhador()!=0){
             mostrar_tabuleiro();
+            printf("%c é o vencedor", ganhador());
             break;}
     }
     if (ganhador()==0){
@@ -25,19 +27,26 @@ int main(){
 }
 
 int ganhador(){
+    if(vez=='X'){
+            vencedor='O';
+        }else{
+            vencedor='X';
+        }
+    if (tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2])
+        return vencedor;
+    if (tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0])
+        return vencedor;
+
     for(int i=0; i<3; i++){
         if (tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2])
-            return printf("%c eh o vencedor", vez);
+            return vencedor;
         if (tabuleiro[0][i] == tabuleiro[1][i] && tabuleiro[1][i] == tabuleiro[2][i])
-            return printf("%c eh o vencedor", vez);
+            return vencedor;
     }
 
-   if (tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[1][2])
-        return printf("%c eh o vencedor", vez);
-   if (tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0])
-        return printf("%c eh o vencedor", vez);
 
-   return 0;
+
+    return 0;
 
 }
 void mostrar_tabuleiro(){
