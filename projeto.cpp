@@ -17,11 +17,12 @@ int main(){
 
         if (ganhador()!=0){
             mostrar_tabuleiro();
-            printf("%c é o vencedor", ganhador());
+            cout<<char(ganhador())<<"é o vencedor" <<endl;
             break;}
     }
     if (ganhador()==0){
-        printf("Empatou");
+        mostrar_tabuleiro();
+        cout<<"O jogo terminou em empate"<<endl;
     };
     return 0;
 }
@@ -45,10 +46,10 @@ int ganhador(){
     }
 
 
-
     return 0;
 
 }
+
 void mostrar_tabuleiro(){
     cout<<"\n";
     cout<<" "<<tabuleiro[0][0]<<" | "<<tabuleiro[0][1]<<" | "<<tabuleiro[0][2]<<endl;
@@ -81,7 +82,6 @@ void vez_jogador(){
         case 8: linha=2; coluna=1; break;
         case 9: linha=2; coluna=2; break;
         default: cout<<"Casa inválida! Tente novamente\n"<<endl;
-        ///vez_jogador();
     }
 
     if(vez=='X' && tabuleiro[linha][coluna]!='X' && tabuleiro[linha][coluna]!='O'){
