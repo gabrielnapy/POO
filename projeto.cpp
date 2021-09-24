@@ -17,7 +17,7 @@ int main(){
 
         if (ganhador()!=0){
             mostrar_tabuleiro();
-            cout<<char(ganhador())<<"é o vencedor" <<endl;
+            cout<<char(ganhador())<<" é o vencedor" <<endl;
             break;}
     }
     if (ganhador()==0){
